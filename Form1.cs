@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Book
 {
@@ -18,25 +19,51 @@ namespace Book
             InitializeComponent();
         }
 
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
+
+        static List<Book> books = new List<Book>();
+        static int selectedRow = 0;
+        static BindingSource source = new BindingSource();
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<string> booksCsv = File.ReadAllLines("books.csv").ToList();
-            List<Book> books = new List<Book>();
+            AllocConsole();
 
-            booksCsv.RemoveAt(0);
+            List<string> booksCsv = File.ReadAllLines("books.csv").ToList();
 
             foreach (string line in booksCsv)
             {
-                string[] splitLine = line.Split(',');
+                string[] splitLine = line.Split(';');
 
-                // nem jo a books csv
-                books.Add(new Book(splitLine[0], splitLine[1], splitLine[2], splitLine[3]));
+                books.Add(new Book(splitLine[0], splitLine[1], splitLine[2], Convert.ToInt32(splitLine[3])));
             }
 
-            BindingSource binding = new BindingSource();
-            binding.DataSource = books;
+            source.DataSource = books;
+            bookListDataGridView.DataSource = source;
+        }
 
-            bookListDataGridView.DataSource = binding;
+        private void bookListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                selectedRow = e.RowIndex;
+                tabControl.SelectTab(modifyBook_tab);
+            }
+        }
+
+        private void buttonAddBook_Click(object sender, EventArgs e)
+        {
+            books.Add(new Book(textBoxAuthor.Text, textBoxGenre.Text, textBoxTitle.Text, Convert.ToInt32(textBoxPages.Text)));
+            source.ResetBindings(false);
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

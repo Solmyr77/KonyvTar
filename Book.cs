@@ -13,12 +13,12 @@ namespace Book
         private string title;
         private int pages;
 
-        public Book(string title, string author, string genre, string pages)
+        public Book(string author, string genre, string title, int pages)
         {
             this.Author = author;
             this.Genre = genre;
             this.Title = title;
-            this.Pages = Convert.ToInt32(pages);
+            this.Pages = pages;
         }
 
         public string Author { get => author; set => author = value; }

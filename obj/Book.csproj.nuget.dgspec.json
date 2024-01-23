@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LorinczLL\\source\\repos\\Book\\Book.csproj": {}
+    "C:\\Users\\LorinczLL\\Desktop\\projekt\\KonyvTar-main\\KonyvTar-main\\Book.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LorinczLL\\source\\repos\\Book\\Book.csproj": {
+    "C:\\Users\\LorinczLL\\Desktop\\projekt\\KonyvTar-main\\KonyvTar-main\\Book.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LorinczLL\\source\\repos\\Book\\Book.csproj",
+        "projectUniqueName": "C:\\Users\\LorinczLL\\Desktop\\projekt\\KonyvTar-main\\KonyvTar-main\\Book.csproj",
         "projectName": "Book",
-        "projectPath": "C:\\Users\\LorinczLL\\source\\repos\\Book\\Book.csproj",
+        "projectPath": "C:\\Users\\LorinczLL\\Desktop\\projekt\\KonyvTar-main\\KonyvTar-main\\Book.csproj",
         "packagesPath": "C:\\Users\\LorinczLL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LorinczLL\\source\\repos\\Book\\obj\\",
+        "outputPath": "C:\\Users\\LorinczLL\\Desktop\\projekt\\KonyvTar-main\\KonyvTar-main\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LorinczLL\\AppData\\Roaming\\NuGet\\NuGet.Config",
