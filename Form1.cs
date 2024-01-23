@@ -58,12 +58,24 @@ namespace Book
         private void buttonAddBook_Click(object sender, EventArgs e)
         {
             books.Add(new Book(textBoxAuthor.Text, textBoxGenre.Text, textBoxTitle.Text, Convert.ToInt32(textBoxPages.Text)));
-            source.ResetBindings(false);
+            source.ResetBindings(true);
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            string currentAuthor = bookListDataGridView.Rows[selectedRow].Cells[1].Value.ToString();
+            string currentGenre = bookListDataGridView.Rows[selectedRow].Cells[2].Value.ToString();
+            string currentTitle = bookListDataGridView.Rows[selectedRow].Cells[3].Value.ToString();
+            string currentPages = bookListDataGridView.Rows[selectedRow].Cells[4].Value.ToString();
 
+            Book currentBook = books.Where(x => x.Author == currentAuthor).Where(y => y.Genre == currentGenre)
+                 .Where(z => z.Title == currentTitle).Where(e => e.Pages == Convert.ToInt32(currentPages))
+                .FirstOrDefault();
+
+            books.RemoveAt(books.IndexOf(currentBook));
+            source.ResetBindings(true);
+
+            tabControl.SelectTab(bookList_tab);
         }
     }
 }
