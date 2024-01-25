@@ -8,26 +8,32 @@
     "net5.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\LorinczLL\\.nuget\\packages\\": {}
+    "C:\\Users\\Solmyr\\.nuget\\packages\\": {},
+    "H:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LorinczLL\\Desktop\\projekt\\KonyvTar-main\\KonyvTar-main\\Book.csproj",
+      "projectUniqueName": "C:\\Users\\Solmyr\\Desktop\\KonyvTar-main\\Book.csproj",
       "projectName": "Book",
-      "projectPath": "C:\\Users\\LorinczLL\\Desktop\\projekt\\KonyvTar-main\\KonyvTar-main\\Book.csproj",
-      "packagesPath": "C:\\Users\\LorinczLL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LorinczLL\\Desktop\\projekt\\KonyvTar-main\\KonyvTar-main\\obj\\",
+      "projectPath": "C:\\Users\\Solmyr\\Desktop\\KonyvTar-main\\Book.csproj",
+      "packagesPath": "C:\\Users\\Solmyr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Solmyr\\Desktop\\KonyvTar-main\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "H:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\LorinczLL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Solmyr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0-windows7.0"
+        "net5.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -51,7 +57,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -63,7 +70,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

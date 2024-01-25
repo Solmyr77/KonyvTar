@@ -9,11 +9,11 @@ namespace Book
     class Book
     {
         private string author;
-        private string genre;
         private string title;
+        private string genre;
         private int pages;
 
-        public Book(string author, string genre, string title, int pages)
+        public Book(string author, string title, string genre, int pages)
         {
             this.Author = author;
             this.Genre = genre;
@@ -22,8 +22,8 @@ namespace Book
         }
 
         public string Author { get => author; set => author = value; }
-        public string Genre { get => genre; set => genre = value; }
         public string Title { get => title; set => title = value; }
+        public string Genre { get => genre; set => genre = value; }
         public int Pages { get => pages; set => pages = value; }
     }
 }
