@@ -25,5 +25,10 @@ namespace Book
         public string Title { get => title; set => title = value; }
         public string Genre { get => genre; set => genre = value; }
         public int Pages { get => pages; set => pages = value; }
+
+        public override string ToString()
+        {
+            return $"{this.Author};{this.Genre};{this.Title};{this.Pages}";
+        }
     }
 }

@@ -35,13 +35,13 @@ namespace Book
         {
             AllocConsole();
 
-            List<string> booksCsv = File.ReadAllLines("books.csv").ToList();
+            List<string> booksCsv = File.ReadAllLines("books_list.csv").ToList();
 
             foreach (string line in booksCsv)
             {
                 string[] splitLine = line.Split(';');
-
-                books.Add(new Book(splitLine[0], splitLine[2], splitLine[1], Convert.ToInt32(splitLine[3])));
+                
+                books.Add(new Book(splitLine[0], splitLine[2], splitLine[1], int.Parse(splitLine[3])));
             }
 
             searchBar.Text = searchPlaceholder;
@@ -101,16 +101,24 @@ namespace Book
             source.ResetBindings(true);
         }
 
-        private void buttonDelete_Click(object sender, EventArgs e)
+        private async void buttonDelete_Click(object sender, EventArgs e)
         {
             books.RemoveAt(books.IndexOf(currentSelectedBook));
             source.ResetBindings(true);
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in books)
+            {
+                sb.Append($"{item.ToString()}\n");
+            }
+            
+            await File.WriteAllTextAsync("books_list.csv", sb.ToString());
 
             tabControl.TabPages.Remove(modifyBook_tab);
             tabControl.SelectTab(bookList_tab);
         }
 
-        private void buttonModify_Click(object sender, EventArgs e)
+        private async void buttonModify_Click(object sender, EventArgs e)
         {
             currentSelectedBook.Author = textBoxAuthorOp.Text;
             currentSelectedBook.Genre = textBoxGenreOp.Text;
@@ -118,6 +126,14 @@ namespace Book
             currentSelectedBook.Pages = Convert.ToInt32(textBoxPagesOp.Text);
 
             source.ResetBindings(true);
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in books)
+            {
+                sb.Append($"{item.ToString()}\n");
+            }
+
+            await File.WriteAllTextAsync("books_list.csv", sb.ToString());
 
             tabControl.TabPages.Remove(modifyBook_tab);
             tabControl.SelectTab(bookList_tab);

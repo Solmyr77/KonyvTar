@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="books.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="books_list.csv">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
