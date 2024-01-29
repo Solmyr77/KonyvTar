@@ -19,10 +19,6 @@ namespace Book
             InitializeComponent();
         }
 
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AllocConsole();
-
         static List<Book> books = new List<Book>();
         static List<Book> listedBooks = new List<Book>();
         static int selectedRow = 0;
@@ -33,8 +29,6 @@ namespace Book
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            AllocConsole();
-
             List<string> booksCsv = File.ReadAllLines("books_list.csv").ToList();
 
             foreach (string line in booksCsv)
